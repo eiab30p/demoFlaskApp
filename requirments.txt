@@ -1,0 +1,31 @@
+Babel==2.5.1 # integrated collection of utilities that assist in internationalizing and localizing Python applications  http://babel.pocoo.org/en/latest/dates.html
+blinker==1.4 # fast & simple object-to-object and broadcast signaling for Python objects    Signals provide an easy way to handle events in your program  https://pythonhosted.org/blinker/
+click==6.7 # Click is a Python package for creating beautiful command line interfaces in a compassable way with as little code as necessary. It’s the “Command Line Interface Creation Kit”. Like argsparse but better. http://click.pocoo.org/5/
+coverage==4.4.2 # code coverage https://coverage.readthedocs.io/en/coverage-4.4.2/
+decorator==4.1.2 # provide a simple syntax for calling higher-order functions http://decorator.readthedocs.io/en/stable/README.html
+Flask==0.12.2 # framework
+Flask-Babel==0.11.2 # Helps Support Babel https://pythonhosted.org/Flask-Babel/
+Flask-Login==0.4.1 # user session management https://flask-login.readthedocs.io/en/latest/
+Flask-Mail==0.9.1 # Helps with SMTP https://pythonhosted.org/Flask-Mail/
+Flask-OpenID==1.2.5 # Allows user use one account across multiple accounts https://pythonhosted.org/Flask-OpenID/
+Flask-SQLAlchemy==2.3.2 # Helps Support SQLAlchemy http://flask-sqlalchemy.pocoo.org/2.3/
+Flask-WhooshAlchemy==0.56 # Text-Search Functionality https://github.com/gyllstromk/Flask-WhooshAlchemy
+Flask-WTF==0.14.2 # Supports WTForms and including CSRF, file upload, and reCAPTCHA. https://flask-wtf.readthedocs.io/en/stable/
+flipflop==1.0 # FastCGI/WSGI gateway https://pypi.python.org/pypi/flipflop
+guess-language==0.2 #  language identifier  https://pypi.python.org/pypi/guess-language
+itsdangerous==0.24 # cryptographically sign your data http://pythonhosted.org/itsdangerous/
+Jinja2==2.10 # Not sure Why Jinja2 was installed possible requirement for other package.
+MarkupSafe==1.0 # you want to make an object unicode that is not yet unicode but don’t want to lose the taint information https://pypi.python.org/pypi/MarkupSafe
+pbr==3.1.1 # Packaging Python https://docs.openstack.org/pbr/latest/
+python-openid==2.2.5 # OpenID decentralized identity system in your application https://pypi.python.org/pypi/python-openid/
+pytz==2017.3 # library allows accurate and cross platform timezone calculations https://pypi.python.org/pypi/pytz
+six==1.11.0 # simple utilities for wrapping over differences between Python 2 and Python 3 https://pythonhosted.org/six/
+SQLAlchemy==1.2.0 # ORM https://www.sqlalchemy.org/
+sqlalchemy-migrate==0.11.0 # a way to deal with database schema changes in SQLAlchemy projects. http://sqlalchemy-migrate.readthedocs.io/en/latest/
+sqlparse==0.2.4 # provides support for parsing, splitting and formatting SQL statements. https://sqlparse.readthedocs.io/en/latest/
+Tempita==0.5.2 # Tempita is a small and simple Python text templating language mainly used by Paster (python-pastescript) to roll out new projects https://pypi.python.org/pypi/Tempita
+Werkzeug==0.14.1 # WSGI utility library for Python. http://werkzeug.pocoo.org/
+Whoosh==2.7.4 #  fast, pure Python search engine library http://whoosh.readthedocs.io/en/latest/intro.html
+WTForms==2.1 # Helps create form **Life Saver** http://wtforms.readthedocs.io/en/latest/faq.html
+selenium==3.8.1 # UI Testing http://selenium-python.readthedocs.io/index.html
+pylint==1.8.1 # e2e code testing https://www.pylint.org/
