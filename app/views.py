@@ -17,4 +17,5 @@ from app import app
 @app.route('/index')
 def index():
     """Root For All Web Pages."""
+    print("testing")
     return render_template("based.html")
