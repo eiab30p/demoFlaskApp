@@ -1,0 +1,87 @@
+{% extends "based.html" %}
+
+{% block mainContent %}
+<form action="/contact" method="POST">
+  {{ form.csrf_token }}
+  {{ form.csrf_token }}
+  <fieldset>
+
+    <div class="info-section">
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="mdl-textfield mdl-textfield--floating-label
+          mdl-js-textfield mdl-textfield--full-width  is-upgraded"
+          data-upgraded=",MaterialTextfield">
+          {{form.first_name.label(class="mdl-textfield__label")}}
+          {{form.first_name(class="mdl-textfield__input")}}
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="mdl-textfield mdl-textfield--floating-label
+          mdl-js-textfield mdl-textfield--full-width  is-upgraded"
+          data-upgraded=",MaterialTextfield">
+            {{form.middle_name.label(class="mdl-textfield__label")}}
+            {{form.middle_name(class="mdl-textfield__input")}}
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="mdl-textfield mdl-textfield--floating-label
+          mdl-js-textfield mdl-textfield--full-width  is-upgraded"
+          data-upgraded=",MaterialTextfield">
+            {{form.last_name.label(class="mdl-textfield__label")}}
+            {{form.last_name(class="mdl-textfield__input")}}
+          </div>
+        </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="mdl-textfield mdl-textfield--floating-label
+        mdl-js-textfield mdl-textfield--full-width  is-upgraded"
+        data-upgraded=",MaterialTextfield">
+            {{form.email.label(class="mdl-textfield__label")}}
+            {{form.email(class="mdl-textfield__input")}}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        
+
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="mdl-textfield mdl-textfield--floating-label
+          mdl-js-textfield mdl-textfield--full-width  is-upgraded"
+          data-upgraded=",MaterialTextfield">
+            {{form.accept_tos.label(class="mdl-textfield__label")}}
+            {{form.accept_tos(class="mdl-textfield__input")}}
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="mdl-textfield mdl-textfield--floating-label
+          mdl-js-textfield mdl-textfield--full-width  is-upgraded"
+          data-upgraded=",MaterialTextfield">
+            {{form.email_message.label(class="mdl-textfield__label")}}
+            {{form.email_message(class="mdl-textfield__input")}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="mdl-textfield mdl-textfield--floating-label
+      mdl-js-textfield mdl-textfield--full-width  is-upgraded"
+      data-upgraded=",MaterialTextfield">
+        {{form.submit}}
+      </div>
+    </div>
+  </div>
+
+  </fieldset>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>registrationForm.py</title>
+  <link rel="stylesheet" href="..\pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>registrationForm.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Creating Registration Form Validation and Queries.</p>
+<p>The script below is an example of how to screate, validate, regex, options, and
+other useful information when creating we parts for a website.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask_wtf</span> <span class="kn">import</span> <span class="n">Form</span>
+<span class="kn">from</span> <span class="nn">wtforms</span> <span class="kn">import</span> <span class="n">BooleanField</span><span class="p">,</span> <span class="n">StringField</span><span class="p">,</span> <span class="n">SelectField</span><span class="p">,</span> <span class="n">SubmitField</span><span class="p">,</span>\
+    <span class="n">TextAreaField</span>
+<span class="kn">from</span> <span class="nn">wtforms.fields.html5</span> <span class="kn">import</span> <span class="n">EmailField</span>
+<span class="kn">from</span> <span class="nn">wtforms.validators</span> <span class="kn">import</span> <span class="n">Regexp</span><span class="p">,</span> <span class="n">DataRequired</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>This is the Regex to validate name variables mostly for first and last</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">name_regex_validator</span> <span class="o">=</span> <span class="n">Regexp</span><span class="p">(</span>
+    <span class="s2">&quot;^[a-zA-Z]([a-zA-Z &#39;]{2,250})$&quot;</span><span class="p">,</span>
+    <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Only letters, </span><span class="se">\&quot;</span><span class="s2">-</span><span class="se">\&quot;</span><span class="s2"> and &#39; allowed, should start with a letter</span><span class="se">\</span>
+<span class="s2">    , and be 2 to 250 characters&quot;</span>
+<span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>This will allow only zero(0) or one (1) chars to be entered</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">one_char_regex_validator</span> <span class="o">=</span> <span class="n">Regexp</span><span class="p">(</span>
+    <span class="s2">&quot;^[a-zA-Z]([a-zA-Z]{0,1})$&quot;</span><span class="p">,</span>
+    <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Only one (1) letter allowed for middle initial.&quot;</span>
+<span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Validationg an email Address</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">email_regex_validator</span> <span class="o">=</span> <span class="n">Regexp</span><span class="p">(</span>
+    <span class="s2">&quot;\A[a-z0-9!#$%&amp;&#39;*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;&#39;*+/=?^_`{|}~-]+)*@</span><span class="se">\</span>
+<span class="s2">    (?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\z&quot;</span><span class="p">,</span>
+    <span class="n">message</span><span class="o">=</span><span class="s2">&quot;Email Does Not Match&quot;</span>
+<span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <pre><code>Basic Registration Form.
+
+This basic form shows how to create inputs, dropdown, radio, validation
+</code></pre>
+<p>and more.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">class</span> <span class="nc">RegistrationForm</span><span class="p">(</span><span class="n">Form</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>DataRequired is telling the field this is a required for the user
+the function name_regex_validator is called from above</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">first_name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;First Name&#39;</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">DataRequired</span><span class="p">(</span><span class="s2">&quot;Please Enter Your First Name&quot;</span><span class="p">),</span>
+        <span class="n">name_regex_validator</span>
+    <span class="p">])</span>
+    <span class="n">middle_name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Middle Name&#39;</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">one_char_regex_validator</span>
+    <span class="p">])</span>
+    <span class="n">last_name</span> <span class="o">=</span> <span class="n">StringField</span><span class="p">(</span><span class="s1">&#39;Last Name&#39;</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">DataRequired</span><span class="p">(</span><span class="s2">&quot;Please Enter Your Last Name&quot;</span><span class="p">),</span>
+        <span class="n">name_regex_validator</span>
+    <span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>EmailField will have a semi good regex looking for the  @ simple</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">email</span> <span class="o">=</span> <span class="n">EmailField</span><span class="p">(</span><span class="s1">&#39;Email Address&#39;</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">DataRequired</span><span class="p">(</span><span class="s2">&quot;Please Enter Your Email&quot;</span><span class="p">),</span>
+        <span class="n">email_regex_validator</span>
+    <span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>Select is used for your dropdown but the options can also be pulled from
+a query as well. The choices need to be the value for the application
+and the display text value.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">Random_Select_Option</span> <span class="o">=</span> <span class="n">SelectField</span><span class="p">(</span><span class="s1">&#39;Random Select For Test&#39;</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">DataRequired</span><span class="p">(</span><span class="s2">&quot;Please Select an Option&quot;</span><span class="p">)</span>
+    <span class="p">],</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">),(</span><span class="s1">&#39;Puppies&#39;</span><span class="p">,</span><span class="s1">&#39;Puppies&#39;</span><span class="p">),(</span><span class="s1">&#39;Kitties&#39;</span><span class="p">,</span><span class="s1">&#39;Kitties&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;Travel&#39;</span><span class="p">,</span><span class="s1">&#39;Travel&#39;</span><span class="p">)</span>
+    <span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>TextArea For A Message to be sent via Email</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">email_message</span> <span class="o">=</span> <span class="n">TextAreaField</span><span class="p">(</span><span class="s1">&#39;Send A Special Message&#39;</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">DataRequired</span><span class="p">(</span><span class="s2">&quot;Please Send Me A Message.&quot;</span><span class="p">)</span>
+    <span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>BooleanField are used as they are a checkbox, this one is required
+for TOS</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">accept_tos</span> <span class="o">=</span> <span class="n">BooleanField</span><span class="p">(</span><span class="s1">&#39;Are You Sure?&#39;</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">DataRequired</span><span class="p">(</span><span class="s2">&quot;Select The CheckBox if You Really Want To Send the Email&quot;</span><span class="p">)</span>
+    <span class="p">])</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>SubmitField to sned the data</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">submit</span> <span class="o">=</span> <span class="n">SubmitField</span><span class="p">(</span><span class="s2">&quot;Submit Content&quot;</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>contactform.js</title>
+  <link rel="stylesheet" href="..\..\..\pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>contactform.js</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="nx">jQuery</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">)</span> <span class="p">{</span>
+<span class="s2">&quot;use strict&quot;</span><span class="p">;</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Contact</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;form.contactForm&#39;</span><span class="p">).</span><span class="nx">submit</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.form-group&#39;</span><span class="p">),</span> 
+        <span class="nx">ferror</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> 
+        <span class="nx">emailExp</span> <span class="o">=</span> <span class="sr">/^[^\s()&lt;&gt;@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i</span><span class="p">;</span>
+
+        <span class="nx">f</span><span class="p">.</span><span class="nx">children</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span> <span class="c1">// run all inputs</span>
+
+            <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// current input</span>
+            <span class="kd">var</span> <span class="nx">rule</span> <span class="o">=</span> <span class="nx">i</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-rule&#39;</span><span class="p">);</span>
+
+            <span class="k">if</span><span class="p">(</span> <span class="nx">rule</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="p">){</span>
+            <span class="kd">var</span> <span class="nx">ierror</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span> <span class="c1">// error flag for current input</span>
+            <span class="kd">var</span> <span class="nx">pos</span> <span class="o">=</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span> <span class="nx">pos</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">){</span>
+                <span class="kd">var</span> <span class="nx">exp</span> <span class="o">=</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span> <span class="nx">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">length</span> <span class="p">);</span>
+                <span class="nx">rule</span> <span class="o">=</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">pos</span><span class="p">);</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="nx">rule</span> <span class="o">=</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span> <span class="nx">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">length</span> <span class="p">);</span>
+            <span class="p">}</span>
+            
+            <span class="k">switch</span><span class="p">(</span> <span class="nx">rule</span> <span class="p">){</span>
+                <span class="k">case</span> <span class="s1">&#39;required&#39;</span><span class="o">:</span>
+                <span class="k">if</span><span class="p">(</span> <span class="nx">i</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span><span class="o">===</span><span class="s1">&#39;&#39;</span> <span class="p">){</span> <span class="nx">ferror</span><span class="o">=</span><span class="nx">ierror</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span> <span class="p">}</span>
+                <span class="k">break</span><span class="p">;</span>
+                
+                <span class="k">case</span> <span class="s1">&#39;minlen&#39;</span><span class="o">:</span>
+                <span class="k">if</span><span class="p">(</span> <span class="nx">i</span><span class="p">.</span><span class="nx">val</span><span class="p">().</span><span class="nx">length</span><span class="o">&lt;</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">exp</span><span class="p">)</span> <span class="p">){</span> <span class="nx">ferror</span><span class="o">=</span><span class="nx">ierror</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span> <span class="p">}</span>
+                <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="s1">&#39;email&#39;</span><span class="o">:</span>
+                <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="nx">emailExp</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nx">val</span><span class="p">())</span> <span class="p">){</span> <span class="nx">ferror</span><span class="o">=</span><span class="nx">ierror</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span> <span class="p">}</span>
+                <span class="k">break</span><span class="p">;</span>
+
+                <span class="k">case</span> <span class="s1">&#39;checked&#39;</span><span class="o">:</span>
+                <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="nx">i</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">)</span> <span class="p">){</span> <span class="nx">ferror</span><span class="o">=</span><span class="nx">ierror</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span> <span class="p">}</span>
+                <span class="k">break</span><span class="p">;</span>
+                
+                <span class="k">case</span> <span class="s1">&#39;regexp&#39;</span><span class="o">:</span>
+                <span class="nx">exp</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">exp</span><span class="p">);</span>
+                <span class="k">if</span><span class="p">(</span> <span class="o">!</span><span class="nx">exp</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nx">val</span><span class="p">())</span> <span class="p">){</span> <span class="nx">ferror</span><span class="o">=</span><span class="nx">ierror</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span> <span class="p">}</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+                <span class="nx">i</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s1">&#39;.validation&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span> <span class="p">(</span> <span class="nx">ierror</span> <span class="o">?</span> <span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-msg&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">?</span> <span class="nx">i</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-msg&#39;</span><span class="p">)</span> <span class="o">:</span> <span class="s1">&#39;wrong Input&#39;</span><span class="p">)</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span> <span class="p">).</span><span class="nx">show</span><span class="p">(</span><span class="s1">&#39;blind&#39;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+        <span class="nx">f</span><span class="p">.</span><span class="nx">children</span><span class="p">(</span><span class="s1">&#39;textarea&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span> <span class="c1">// run all inputs</span>
+
+            <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// current input</span>
+            <span class="kd">var</span> <span class="nx">rule</span> <span class="o">=</span> <span class="nx">i</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-rule&#39;</span><span class="p">);</span>
+
+            <span class="k">if</span><span class="p">(</span> <span class="nx">rule</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="p">){</span>
+            <span class="kd">var</span> <span class="nx">ierror</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span> <span class="c1">// error flag for current input</span>
+            <span class="kd">var</span> <span class="nx">pos</span> <span class="o">=</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span> <span class="nx">pos</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="p">){</span>
+                <span class="kd">var</span> <span class="nx">exp</span> <span class="o">=</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span> <span class="nx">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">length</span> <span class="p">);</span>
+                <span class="nx">rule</span> <span class="o">=</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">pos</span><span class="p">);</span>
+            <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+                <span class="nx">rule</span> <span class="o">=</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span> <span class="nx">pos</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nx">rule</span><span class="p">.</span><span class="nx">length</span> <span class="p">);</span>
+            <span class="p">}</span>
+            
+            <span class="k">switch</span><span class="p">(</span> <span class="nx">rule</span> <span class="p">){</span>
+                <span class="k">case</span> <span class="s1">&#39;required&#39;</span><span class="o">:</span>
+                <span class="k">if</span><span class="p">(</span> <span class="nx">i</span><span class="p">.</span><span class="nx">val</span><span class="p">()</span><span class="o">===</span><span class="s1">&#39;&#39;</span> <span class="p">){</span> <span class="nx">ferror</span><span class="o">=</span><span class="nx">ierror</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span> <span class="p">}</span>
+                <span class="k">break</span><span class="p">;</span>
+                
+                <span class="k">case</span> <span class="s1">&#39;minlen&#39;</span><span class="o">:</span>
+                <span class="k">if</span><span class="p">(</span> <span class="nx">i</span><span class="p">.</span><span class="nx">val</span><span class="p">().</span><span class="nx">length</span><span class="o">&lt;</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">exp</span><span class="p">)</span> <span class="p">){</span> <span class="nx">ferror</span><span class="o">=</span><span class="nx">ierror</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span> <span class="p">}</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+                <span class="nx">i</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s1">&#39;.validation&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span> <span class="p">(</span> <span class="nx">ierror</span> <span class="o">?</span> <span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-msg&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">undefined</span> <span class="o">?</span> <span class="nx">i</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s1">&#39;data-msg&#39;</span><span class="p">)</span> <span class="o">:</span> <span class="s1">&#39;wrong Input&#39;</span><span class="p">)</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span> <span class="p">).</span><span class="nx">show</span><span class="p">(</span><span class="s1">&#39;blind&#39;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+        <span class="k">if</span><span class="p">(</span> <span class="nx">ferror</span> <span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> 
+        <span class="k">else</span> <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">serialize</span><span class="p">();</span>		
+            <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+                <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+                <span class="nx">url</span><span class="o">:</span> <span class="s2">&quot;contactform/contactform.php&quot;</span><span class="p">,</span>
+                <span class="nx">data</span><span class="o">:</span> <span class="nx">str</span><span class="p">,</span>
+                <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">){</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>alert(msg);</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>                    <span class="k">if</span><span class="p">(</span><span class="nx">msg</span> <span class="o">==</span> <span class="s1">&#39;OK&#39;</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sendmessage&quot;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s2">&quot;show&quot;</span><span class="p">);</span>			
+                        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#errormessage&quot;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s2">&quot;show&quot;</span><span class="p">);</span>	
+                    <span class="p">}</span>
+                    <span class="k">else</span> <span class="p">{</span>
+                        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#sendmessage&quot;</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s2">&quot;show&quot;</span><span class="p">);</span>
+                        <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#errormessage&quot;</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s2">&quot;show&quot;</span><span class="p">);</span>
+                        <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#errormessage&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+                    <span class="p">}</span>
+                    
+                <span class="p">}</span>
+            <span class="p">});</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">});</span>
+
+<span class="p">});</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>
