@@ -142,6 +142,8 @@ a.scrollup i:hover {
 
 .row {
 	margin-bottom:0px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 .row .row{

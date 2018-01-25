@@ -18,9 +18,11 @@ ___
 * CSS
 * Docker
 * Selenium
+* pycco
+* watchDog
 
 
-##### *Python Packages:* 
+##### *Python Packages:*
 *Refer to Requirments.txt file;  my file will have descriptions and urls about each packages *
 
 

@@ -68,3 +68,8 @@ i.icon-bgdark:hover {
 i.icon-bgdark.active {
 	background: #e06d5e;
 }
+
+/* email input field */
+#email {
+	width: 100%
+}

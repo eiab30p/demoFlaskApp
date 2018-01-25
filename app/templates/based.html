@@ -3,7 +3,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>What The Eddy</title>
+	{% if title %}
+		<title>{{title}} - WTE</title>
+	{% else %}
+		<title>What The Eddy</title>
+	{% endif %}
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- <meta name="description" content="">
 	<meta name="author" content=""> -->
@@ -30,91 +34,40 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<h1 class="brand"><a href="index.html">What The Eddy</a></h1>
+				<h1 class="brand"><a href="/">What The Eddy</a></h1>
 				<!-- navigation -->
 				<nav class="pull-right nav-collapse">
 					<ul id="menu-main" class="nav">
-						<li><a title="team" href="#about">About</a></li>
-						<li><a title="services" href="#services">Services</a></li>
-						<li><a title="works" href="#works">Works</a></li>
-						<li><a title="blog" href="#blog">Blog</a></li>
-						<li><a title="contact" href="#contact">Contact</a></li>
-						<li><a href="page.html">Page</a></li>
+						<li><a title="team" href="/">About</a></li>
+						<li><a title="services" href="/">Services</a></li>
+						<li><a title="works" href="/">Works</a></li>
+						<li><a title="blog" href="/">Blog</a></li>
+						<li><a title="contact" href="/contact">Contact</a></li>
 					</ul>
 				</nav>
-				</div>
 			</div>
 		</div>
 	</div>
+</div>
+
 <!-- End of Navigation -->
 <!-- Main Content-->
-	<!-- <div id="header-wrapper" class="header-slider"> -->
 
-	<div class="contentdiv container-fluid">
-		<div class="row">
-	    <div class="col-md-4">
-	      <div class="thumbnail">
-						<div class="caption">
-	            <p>Sed non accumsan augue. Vestibulum leo dui, pharetra id cursus
-								 at, vulputate eu neque. Quisque pulvinar ipsum eu neque
-								 malesuada, eget consequat libero euismod. Fusce convallis
-								  augue consequat dui interdum, in rhoncus velit ultricies.
-									Curabitur sodales neque vitae arcu tristique, at convallis
-									justo rutrum. Praesent laoreet, mi et vestibulum porta, ante
-									magna pretium lacus, non venenatis nibh risus at arcu. Nulla
-									facilisi. Etiam iaculis vel massa nec egestas. Praesent posuere
-									egestas elit. Integer a mauris orci. Duis dolor tellus,
-									pellentesque nec venenatis et, vehicula nec nunc.
-								</p>
-									<img src="/static/img/icons/laptop.png" alt="Laptop" style="width:30%">
-	          </div>
+<div class="contentdiv container-fluid">
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li> {{message}} </li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
 
-	      </div>
-	    </div>
-	    <div class="col-md-4">
-	      <div class="thumbnail">
-						<div class="caption">
-							<p>Sed non accumsan augue. Vestibulum leo dui, pharetra id cursus
-								 at, vulputate eu neque. Quisque pulvinar ipsum eu neque
-								 malesuada, eget consequat libero euismod. Fusce convallis
-									augue consequat dui interdum, in rhoncus velit ultricies.
-									Curabitur sodales neque vitae arcu tristique, at convallis
-									justo rutrum. Praesent laoreet, mi et vestibulum porta, ante
-									magna pretium lacus, non venenatis nibh risus at arcu. Nulla
-									facilisi. Etiam iaculis vel massa nec egestas. Praesent posuere
-									egestas elit. Integer a mauris orci. Duis dolor tellus,
-									pellentesque nec venenatis et, vehicula nec nunc.
-								</p>
-									<img src="/static/img/icons/laptop.png" alt="Laptop" style="width:30%">
-	          </div>
-
-	      </div>
-    	</div>
-			<div class="col-md-4">
-	      <div class="thumbnail">
-
-	          <div class="caption">
-							<p>Sed non accumsan augue. Vestibulum leo dui, pharetra id cursus
-								 at, vulputate eu neque. Quisque pulvinar ipsum eu neque
-								 malesuada, eget consequat libero euismod. Fusce convallis
-									augue consequat dui interdum, in rhoncus velit ultricies.
-									Curabitur sodales neque vitae arcu tristique, at convallis
-									justo rutrum. Praesent laoreet, mi et vestibulum porta, ante
-									magna pretium lacus, non venenatis nibh risus at arcu. Nulla
-									facilisi. Etiam iaculis vel massa nec egestas. Praesent posuere
-									egestas elit. Integer a mauris orci. Duis dolor tellus,
-									pellentesque nec venenatis et, vehicula nec nunc.</p>
-									<img src="/static/img/icons/laptop.png" alt="Laptop" style="width:30%">
-	          </div>
-
-
-
-	      </div>
-    	</div>
-  </div>
-	</div>
-
-
+	{% block mainContent %}{% endblock %}
+</div>
+	<!-- End of Main Content -->
+	<!-- Start of Foorter-->
 
 	<footer>
 		<div class="container">
@@ -122,25 +75,24 @@
 				<div class="span6 offset3">
 					<p class="copyright">
 						&copy; What The Eddy
-						</p>
-					</div>
+					</p>
 				</div>
 			</div>
-		</footer>
+		</div>
+	</footer>
 
-		<script src="/static/js/jquery.js"></script>
-		<script src="/static/js/jquery.scrollTo.js"></script>
-		<script src="/static/js/jquery.nav.js"></script>
-		<script src="/static/js/jquery.localScroll.js"></script>
-		<script src="/static/js/bootstrap.js"></script>
-		<script src="/static/js/jquery.prettyPhoto.js"></script>
-		<script src="/static/js/isotope.js"></script>
-		<script src="/static/js/jquery.flexslider.js"></script>
-		<script src="/static/js/inview.js"></script>
-		<script src="/static/js/animate.js"></script>
-		<script src="/static/js/custom.js"></script>
-		<script src="/static/contactform/contactform.js"></script>
+	<script src="/static/js/jquery.js"></script>
+	<script src="/static/js/jquery.scrollTo.js"></script>
+	<script src="/static/js/jquery.nav.js"></script>
+	<script src="/static/js/jquery.localScroll.js"></script>
+	<script src="/static/js/bootstrap.js"></script>
+	<script src="/static/js/jquery.prettyPhoto.js"></script>
+	<script src="/static/js/isotope.js"></script>
+	<script src="/static/js/jquery.flexslider.js"></script>
+	<script src="/static/js/inview.js"></script>
+	<script src="/static/js/animate.js"></script>
+	<script src="/static/js/custom.js"></script>
+	<script src="/static/contactform/contactform.js"></script>
 
 </body>
-
 </html>
