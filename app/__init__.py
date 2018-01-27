@@ -12,11 +12,14 @@ Other Stuff Gose Here
 
 from flask import Flask
 from flask_wtf import CSRFProtect
+from flask_mail import Mail
 
 app = Flask(__name__)
 
 app.config.from_object('config')
 
 csrf = CSRFProtect(app)
+
+mail = Mail(app)
 
 from app import views

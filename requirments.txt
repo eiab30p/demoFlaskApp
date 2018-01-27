@@ -29,3 +29,4 @@ Whoosh==2.7.4 #  fast, pure Python search engine library http://whoosh.readthedo
 WTForms==2.1 # Helps create form **Life Saver** http://wtforms.readthedocs.io/en/latest/faq.html
 selenium==3.8.1 # UI Testing http://selenium-python.readthedocs.io/index.html
 pylint==1.8.1 # e2e code testing https://www.pylint.org/
+python-dotenv==0.7.1 # Give the ability to import environment variables from a .env file

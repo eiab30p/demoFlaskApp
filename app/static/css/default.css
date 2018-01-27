@@ -73,3 +73,10 @@ i.icon-bgdark.active {
 #email {
 	width: 100%
 }
+
+/* Langing Page Icon */
+.LandingPageIcon{
+	height: 20em;
+	width: 20em;
+	align-content: center;
+}

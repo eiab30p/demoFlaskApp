@@ -1,63 +1,48 @@
 {% extends "based.html" %}
 
 {% block mainContent %}
-	<div class="row">
-		<div class="col-md-4">
-			<div class="thumbnail">
-				<div class="caption">
-					<p>Sed non accumsan augue. Vestibulum leo dui, pharetra id cursus
-						at, vulputate eu neque. Quisque pulvinar ipsum eu neque
-						malesuada, eget consequat libero euismod. Fusce convallis
-						augue consequat dui interdum, in rhoncus velit ultricies.
-						Curabitur sodales neque vitae arcu tristique, at convallis
-						justo rutrum. Praesent laoreet, mi et vestibulum porta, ante
-						magna pretium lacus, non venenatis nibh risus at arcu. Nulla
-						facilisi. Etiam iaculis vel massa nec egestas. Praesent posuere
-						egestas elit. Integer a mauris orci. Duis dolor tellus,
-						pellentesque nec venenatis et, vehicula nec nunc.
-					</p>
-					<img src="/static/img/icons/laptop.png" alt="Laptop" style="width:30%">
-				</div>
+<div class="row">
+	<h1>Welcome! Stranger</h1>
+</div>
 
+<div class="row">
+	<img class="LandingPageIcon" src="./static/img/professores.png" alt="WTE Icon" />
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="thumbnail">
+			<div class="caption">
+				<p>
+					What The Eddy or <strong>WTE</strong> is just a dude who wanted to create a blog about
+					documentaiton knowledge, and other skills possesed over time. Learn more
+					about Eddy in the About section
+				</p>
 			</div>
 		</div>
-		<div class="col-md-4">
-			<div class="thumbnail">
-				<div class="caption">
-					<p>Sed non accumsan augue. Vestibulum leo dui, pharetra id cursus
-						at, vulputate eu neque. Quisque pulvinar ipsum eu neque
-						malesuada, eget consequat libero euismod. Fusce convallis
-						augue consequat dui interdum, in rhoncus velit ultricies.
-						Curabitur sodales neque vitae arcu tristique, at convallis
-						justo rutrum. Praesent laoreet, mi et vestibulum porta, ante
-						magna pretium lacus, non venenatis nibh risus at arcu. Nulla
-						facilisi. Etiam iaculis vel massa nec egestas. Praesent posuere
-						egestas elit. Integer a mauris orci. Duis dolor tellus,
-						pellentesque nec venenatis et, vehicula nec nunc.
-					</p>
-					<img src="/static/img/icons/laptop.png" alt="Laptop" style="width:30%">
-				</div>
-
+	</div>
+	<div class="col-md-4">
+		<div class="thumbnail">
+			<div class="caption">
+				<p>
+					Checkout my <u><a href="{{github}}" target="_blank">Git</a></u> respository,
+					<u><a href="{{linkedInURL}}" alt="Reroute to LinkedIn" target="_blank">LinkedIn</a></u>,
+					or just explore the site.
+				</p>
 			</div>
 		</div>
-		<div class="col-md-4">
-			<div class="thumbnail">
-
-				<div class="caption">
-					<p>Sed non accumsan augue. Vestibulum leo dui, pharetra id cursus
-						at, vulputate eu neque. Quisque pulvinar ipsum eu neque
-						malesuada, eget consequat libero euismod. Fusce convallis
-						augue consequat dui interdum, in rhoncus velit ultricies.
-						Curabitur sodales neque vitae arcu tristique, at convallis
-						justo rutrum. Praesent laoreet, mi et vestibulum porta, ante
-						magna pretium lacus, non venenatis nibh risus at arcu. Nulla
-						facilisi. Etiam iaculis vel massa nec egestas. Praesent posuere
-						egestas elit. Integer a mauris orci. Duis dolor tellus,
-						pellentesque nec venenatis et, vehicula nec nunc.</p>
-						<img src="/static/img/icons/laptop.png" alt="Laptop" style="width:30%">
-					</div>
-				</div>
+	</div>
+	<div class="col-md-4">
+		<div class="thumbnail">
+			<div class="caption">
+				<p>
+					I'm not perfect even though I really wish I was. That being said feel free
+					to shoot me an email about issues, topics, or anything else. Just hit the
+					<u><a href="/contact" alt="Reroute To Contact Page">contact</a></u> and I'll try to respond as quickly as possible.
+				</p>
 			</div>
 		</div>
+	</div>
+</div>
 
 {% endblock %}
