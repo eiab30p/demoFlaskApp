@@ -8,7 +8,15 @@
 	{% else %}
 		<title>What The Eddy</title>
 	{% endif %}
+	<!-- utf-8 works for most cases -->
+	<meta charset="utf-8">
+	<!-- Forcing initial-scale shouldn't be necessary -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Use the latest (edge) version of IE rendering engine -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Disable auto-scale in iOS 10 Mail entirely -->
+	<meta name="x-apple-disable-message-reformatting">
+
 	<!-- <meta name="description" content="">
 	<meta name="author" content=""> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -42,6 +50,7 @@
 						<li><a title="services" href="/">Services</a></li>
 						<li><a title="works" href="/">Works</a></li>
 						<li><a title="blog" href="/">Blog</a></li>
+						<li><a title="chat" href="/">Dev Room</a></li>
 						<li><a title="contact" href="/contact">Contact</a></li>
 					</ul>
 				</nav>
@@ -55,13 +64,13 @@
 
 <div class="contentdiv container-fluid">
 	{% with messages = get_flashed_messages() %}
-		{% if messages %}
-			<ul>
-				{% for message in messages %}
-					<li> {{message}} </li>
-				{% endfor %}
-			</ul>
-		{% endif %}
+	  {% if messages %}
+	    
+	    {% for message in messages %}
+	      <p class=flashes>{{ message }}</p>
+	    {% endfor %}
+
+	  {% endif %}
 	{% endwith %}
 
 	{% block mainContent %}{% endblock %}

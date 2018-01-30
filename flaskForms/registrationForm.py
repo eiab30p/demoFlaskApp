@@ -34,8 +34,8 @@ class RegistrationForm(FlaskForm):
     """
     Basic Registration Form.
 
-    This basic form shows how to create inputs, dropdown, radio, validation
-     and more.
+    This basic form shows how to create inputs, dropdown,
+    radio, validation and more.
     """
 
     # DataRequired is telling the field this is a required for the user
@@ -58,13 +58,15 @@ class RegistrationForm(FlaskForm):
     # Select is used for your dropdown but the options can also be pulled from
     # a query as well. The choices need to be the value for the application
     # and the display text value.
-    random_select_option = SelectField('Random Select For Test', validators=[
-        DataRequired("Please Select an Option")
-    ],
-        choices=[
-        ('', ''), ('Puppies', 'Puppies'), ('Kitties', 'Kitties'),
-        ('Travel', 'Travel')
-    ])
+    #
+    # random_select_option = SelectField('Random Select For Test', validators=[
+    #     DataRequired("Please Select an Option")
+    # ],
+    #     choices=[
+    #     ('', ''), ('Puppies', 'Puppies'), ('Kitties', 'Kitties'),
+    #     ('Travel', 'Travel')
+    # ])
+    #
     # TextArea For A Message to be sent via Email
     email_message = TextAreaField('Send A Special Message', validators=[
         DataRequired("Please Send Me A Message.")

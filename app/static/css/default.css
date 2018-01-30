@@ -71,7 +71,7 @@ i.icon-bgdark.active {
 
 /* email input field */
 #email {
-	width: 100%
+	width: 100%;
 }
 
 /* Langing Page Icon */
@@ -79,4 +79,24 @@ i.icon-bgdark.active {
 	height: 20em;
 	width: 20em;
 	align-content: center;
+}
+
+/*Overiding Text Hieght */
+select, textarea, input[type="text"], input[type="password"],
+input[type="datetime"], input[type="datetime-local"], input[type="date"],
+input[type="month"], input[type="time"], input[type="week"],
+input[type="number"], input[type="email"], input[type="url"],
+input[type="search"], input[type="tel"], input[type="color"],
+.uneditable-input{
+	height: 40px;
+}
+
+/*Overiding Position for text*/
+
+div {
+    position: initial;
+}
+
+.textbox-height{
+	height: 20px;
 }

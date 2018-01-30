@@ -11,6 +11,7 @@ We are going to add random text for watchDog
 from flask import render_template, request, flash, redirect, url_for
 from flaskForms.registrationForm import RegistrationForm
 from app import app
+from util.emailFunction import configEmailTemp
 import os
 
 
@@ -21,8 +22,9 @@ def index():
     try:
         linkedIn = os.environ.get('LINKEDIN')
         github = os.environ.get('GITHUB')
-    except ValueError:
-        logging ("Environment Did Not Set or Did Not Establish")
+    except Exception as e:
+        app.logger.error('Environment Did Not Set or Did Not Establish: %s',
+                         (e))
 
     return render_template('index.html',
                            linkedInURL=linkedIn,
@@ -68,6 +70,15 @@ def contact():
                                    title='Contact',
                                    form=form)
         else:
+            try:
+                configEmailTemp(form.data)
+            except Exception as e:
+                app.logger.error('Issue Creating Email: %s', (e))
+                flash('There has been an Issue Please Try Again')
+                return render_template('contact.html',
+                                       title='Contact',
+                                       form=form)
+
             return redirect(url_for('contact'))
 
 
@@ -92,9 +103,14 @@ def blog():
 
 
 @app.errorhandler(404)
+@app.errorhandler(403)
+@app.errorhandler(410)
+@app.errorhandler(500)
 def page_not_found(e):
-    """404 Error Page."""
-    return render_template("404.html")
+    """Error Page."""
+    app.logger.error('Unhandled Exception: %s', (e))
+    return render_template("404.html",
+                           title=e)
 
 
 if __name__ == '__main__':

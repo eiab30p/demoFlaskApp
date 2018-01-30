@@ -15,14 +15,14 @@ def configEmailTemp(userinformation):
     """Creating The HTML Body Template and send email."""
     sendEmail(
         sender,
-        userinformation.email,
+        [userinformation['email']],
         "WooHooo Got Your Email",
         render_template("emailTemp.html", user=userinformation),
     )
 
 
-def sendEmail(sender, recipient, subject, html_body, attachment):
+def sendEmail(sender, recipient, subject, html_body):
     """Sending Email."""
-    msg = Message(subject, sender=sender, recipient=recipient)
+    msg = Message(subject, sender=sender, recipients=recipient)
     msg.html = html_body
     mail.send(msg)

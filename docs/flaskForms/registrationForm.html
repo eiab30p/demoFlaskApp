@@ -84,9 +84,9 @@ other useful information when creating we parts for a website.</p>
       </div>
       <pre><code>Basic Registration Form.
 
-This basic form shows how to create inputs, dropdown, radio, validation
+This basic form shows how to create inputs, dropdown,
+radio, validation and more.
 </code></pre>
-<p>and more.</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre><span class="k">class</span> <span class="nc">RegistrationForm</span><span class="p">(</span><span class="n">FlaskForm</span><span class="p">):</span></pre></div>
@@ -150,24 +150,14 @@ the function name_regex_validator is called from above</p>
       <p>Select is used for your dropdown but the options can also be pulled from
 a query as well. The choices need to be the value for the application
 and the display text value.</p>
-    </div>
-    <div class='code'>
-      <div class="highlight"><pre>    <span class="n">random_select_option</span> <span class="o">=</span> <span class="n">SelectField</span><span class="p">(</span><span class="s1">&#39;Random Select For Test&#39;</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span>
-        <span class="n">DataRequired</span><span class="p">(</span><span class="s2">&quot;Please Select an Option&quot;</span><span class="p">)</span>
-    <span class="p">],</span>
-        <span class="n">choices</span><span class="o">=</span><span class="p">[</span>
-        <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Puppies&#39;</span><span class="p">,</span> <span class="s1">&#39;Puppies&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Kitties&#39;</span><span class="p">,</span> <span class="s1">&#39;Kitties&#39;</span><span class="p">),</span>
-        <span class="p">(</span><span class="s1">&#39;Travel&#39;</span><span class="p">,</span> <span class="s1">&#39;Travel&#39;</span><span class="p">)</span>
-    <span class="p">])</span></pre></div>
-    </div>
-  </div>
-  <div class='clearall'></div>
-  <div class='section' id='section-9'>
-    <div class='docs'>
-      <div class='octowrap'>
-        <a class='octothorpe' href='#section-9'>#</a>
-      </div>
-      <p>TextArea For A Message to be sent via Email</p>
+<p>random_select_option = SelectField('Random Select For Test', validators=[
+    DataRequired("Please Select an Option")
+],
+    choices=[
+    ('', ''), ('Puppies', 'Puppies'), ('Kitties', 'Kitties'),
+    ('Travel', 'Travel')
+])</p>
+<p>TextArea For A Message to be sent via Email</p>
     </div>
     <div class='code'>
       <div class="highlight"><pre>    <span class="n">email_message</span> <span class="o">=</span> <span class="n">TextAreaField</span><span class="p">(</span><span class="s1">&#39;Send A Special Message&#39;</span><span class="p">,</span> <span class="n">validators</span><span class="o">=</span><span class="p">[</span>
@@ -176,10 +166,10 @@ and the display text value.</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-10'>
+  <div class='section' id='section-9'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-10'>#</a>
+        <a class='octothorpe' href='#section-9'>#</a>
       </div>
       <p>BooleanField are used as they are a checkbox, this one is required
 for TOS</p>
@@ -191,10 +181,10 @@ for TOS</p>
     </div>
   </div>
   <div class='clearall'></div>
-  <div class='section' id='section-11'>
+  <div class='section' id='section-10'>
     <div class='docs'>
       <div class='octowrap'>
-        <a class='octothorpe' href='#section-11'>#</a>
+        <a class='octothorpe' href='#section-10'>#</a>
       </div>
       <p>SubmitField to sned the data</p>
     </div>
