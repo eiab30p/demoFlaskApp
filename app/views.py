@@ -111,7 +111,3 @@ def page_not_found(e):
     app.logger.error('Unhandled Exception: %s', (e))
     return render_template("404.html",
                            title=e)
-
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
