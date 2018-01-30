@@ -32,3 +32,4 @@ pylint==1.8.1
 python-dateutil==2.6.1
 python-dotenv==0.7.1
 pytest==3.3.2
+gunicorn
