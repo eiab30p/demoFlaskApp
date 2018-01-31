@@ -5,7 +5,7 @@ This is simple a basic Email Test.
 """
 import unittest
 import time
-import os
+
 import pytest
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
@@ -43,11 +43,11 @@ class TestEmail(unittest.TestCase):
         set the size of the screen.
         """
         # self.driver = webdriver.Firefox()
-        self.driver = webdriver.Chrome(os.environ.get('CHROME_WEB_DRIVER'))
+        self.driver = webdriver.Chrome('D:/chromedriver.exe')
         # self.driver = webdriver.Ie()
         driver = self.driver
         driver.implicitly_wait(10)
-        driver.get(os.environ.get('TEST_WEB_UR'))
+        driver.get("http://192.168.50.11:5000/")
         # driver.get("ServerIP")
         # driver.set_window_size("1024", "768")
         driver.maximize_window()
@@ -60,7 +60,7 @@ class TestEmail(unittest.TestCase):
         """
         self.driver.close()
 
-    def missingEmail(self):
+    def test_email_other(self):
         """
         Test Email Function.
 
@@ -84,7 +84,7 @@ class TestEmail(unittest.TestCase):
         input_set_text(driver, "first_name", "Eddy")
         input_set_text(driver, "middle_name", "Ewjkhka")
         input_set_text(driver, "last_name", "Eddy")
-        input_set_text(driver, "email", "Eduardo.Eddy.Verde94")
+        input_set_text(driver, "email", "")
         driver.find_element_by_id("accept_tos").click()
         input_set_text(driver, "email_message", "Some Other Stuff")
         submit = driver.find_element_by_css_selector("#submit").click()
@@ -98,7 +98,7 @@ class TestEmail(unittest.TestCase):
 
         return submit
 
-    def perfectContactEntry(self):
+    def test_email(self):
         """
         Test Email Function.
 
