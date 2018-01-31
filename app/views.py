@@ -12,6 +12,7 @@ from flask import render_template, request, flash, redirect, url_for
 from flaskForms.registrationForm import RegistrationForm
 from app import app
 from util.emailFunction import configEmailTemp
+from flask_wtf.csrf import CSRFError
 import os
 
 

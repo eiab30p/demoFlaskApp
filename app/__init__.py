@@ -11,14 +11,15 @@ Other Stuff Gose Here
 """
 
 from flask import Flask
-from flask_wtf import CSRFProtect
+from flask_wtf import CsrfProtect
 from flask_mail import Mail
+from config import SECRET_KEY
 
 app = Flask(__name__)
 
-app.config.from_object('config')
+app.config['SECRET_KEY'] = SECRET_KEY
 
-csrf = CSRFProtect(app)
+csrf = CsrfProtect(app)
 
 mail = Mail(app)
 
