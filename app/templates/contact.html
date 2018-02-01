@@ -3,6 +3,7 @@
 {% block mainContent %}
 <form action="/contact" method="POST">
   {{ form.csrf_token }}
+  {{ form.hidden_tag() }}
   <fieldset>
 
     <div class="info-section">
