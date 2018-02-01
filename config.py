@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 import os
 
 # Reding from a .env file for environment variables
-dotenv_path = join(dirname(__file__), '.env')
+dotenv_path = join(dirname(__file__), 'test.env')
 load_dotenv(dotenv_path, verbose=True)
 
 WTF_CSRF_ENABLED = True
