@@ -18,7 +18,7 @@ import os
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path, verbose=True)
 
-WTF_CSRF_ENABLED = False
+WTF_CSRF_ENABLED = True
 SECRET_KEY = 'os.environ.get(SECRET_KEY)'
 
 # email server
