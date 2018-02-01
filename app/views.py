@@ -75,7 +75,7 @@ def contact():
                 configEmailTemp(form.data)
             except Exception as e:
                 app.logger.error('Issue Creating Email: %s', (e))
-                flash('There has been an Issue Please Try Again')
+                flash('There has been an Issue Please Try Again %s', (e))
                 return render_template('contact.html',
                                        title='Contact',
                                        form=form)
