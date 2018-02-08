@@ -8,11 +8,11 @@ We are going to add random text for watchDog
 
 """
 
-from flask import render_template, request, flash, redirect, url_for
+from flask import render_template, request, flash, redirect, url_for, Blueprint
 from flaskForms.registrationForm import RegistrationForm
 from app import app
 from util.emailFunction import configEmailTemp
-from flask_wtf.csrf import CSRFError
+from app.chatroomUtil.chat_routes import chatroomRoute
 import os
 
 
@@ -73,9 +73,11 @@ def contact():
         else:
             try:
                 configEmailTemp(form.data)
+                flash("Message Sent Successfully")
             except Exception as e:
                 app.logger.error('Issue Creating Email: %s', (e))
-                flash(e)
+                flash("Oh No! Email Isn't Working Contact WTE\
+                Eduardo.Eddy.Verde94@gmail.com")
                 return render_template('contact.html',
                                        title='Contact',
                                        form=form)
@@ -103,12 +105,19 @@ def blog():
                                title='blog')
 
 
+app.register_blueprint(chatroomRoute, url_prefix='/chatroom')
+
+
 @app.errorhandler(404)
 @app.errorhandler(403)
 @app.errorhandler(410)
 @app.errorhandler(500)
 def page_not_found(e):
-    """Error Page."""
+    """Error Page.
+
+    This is suppose to cover all the web errors the program may incounter. At
+    the moment it will bring you to a blank 404 page with the error.
+    """
     app.logger.error('Unhandled Exception: %s', (e))
     return render_template("404.html",
                            title=e)

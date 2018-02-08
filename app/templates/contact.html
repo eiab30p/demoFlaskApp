@@ -8,7 +8,7 @@
 
     <div class="info-section">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="col-xs-12 col-sm-4 col-md-4">
           <div class="mdl-textfield mdl-textfield--floating-label
           mdl-js-textfield mdl-textfield--full-width  is-upgraded"
           data-upgraded=",MaterialTextfield">
@@ -16,27 +16,13 @@
           {{form.first_name(class="mdl-textfield__input")}}
 
           {% for message in form.first_name.errors %}
-            <div style="color:red" class="first_name_error">{{ message }}</div>
+            <div style="color:red" class="first_name_error error_message">{{ message }}</div>
           {% endfor %}
 
         </div>
         </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="mdl-textfield mdl-textfield--floating-label
-          mdl-js-textfield mdl-textfield--full-width  is-upgraded"
-          data-upgraded=",MaterialTextfield">
-            {{form.middle_name.label(class="mdl-textfield__label")}}
-            {{form.middle_name(class="mdl-textfield__input")}}
-
-            {% for message in form.middle_name.errors %}
-              <div style="color:red" class="middle_name_error">{{ message }}</div>
-            {% endfor %}
-
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="col-xs-12 col-sm-4 col-md-4">
           <div class="mdl-textfield mdl-textfield--floating-label
           mdl-js-textfield mdl-textfield--full-width  is-upgraded"
           data-upgraded=",MaterialTextfield">
@@ -44,13 +30,13 @@
             {{form.last_name(class="mdl-textfield__input")}}
 
             {% for message in form.last_name.errors %}
-              <div style="color:red" class="last_name_error">{{ message }}</div>
+              <div style="color:red" class="last_name_error error_message">{{ message }}</div>
             {% endfor %}
 
           </div>
         </div>
 
-      <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="col-xs-12 col-sm-4 col-md-4">
         <div class="mdl-textfield mdl-textfield--floating-label
         mdl-js-textfield mdl-textfield--full-width  is-upgraded"
         data-upgraded=",MaterialTextfield">
@@ -58,21 +44,7 @@
             {{form.email(class="mdl-textfield__input")}}
 
             {% for message in form.email.errors %}
-              <div style="color:red" class="email_error">{{ message }}</div>
-            {% endfor %}
-
-          </div>
-        </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="mdl-textfield mdl-textfield--floating-label
-          mdl-js-textfield mdl-textfield--full-width  is-upgraded"
-          data-upgraded=",MaterialTextfield">
-            {{form.accept_tos.label(class="mdl-textfield__label")}}
-            {{form.accept_tos(class="mdl-textfield__input")}}
-
-            {% for message in form.accept_tos.errors %}
-              <div style="color:red" class="accept_tos_error">{{ message }}</div>
+              <div style="color:red" class="email_error error_message">{{ message }}</div>
             {% endfor %}
 
           </div>
@@ -86,22 +58,33 @@
           data-upgraded=",MaterialTextfield">
             {{form.email_message.label(class="mdl-textfield__label")}}
             {{form.email_message(class="mdl-textfield__input")}}
+
+            {% for message in form.email_message.errors %}
+              <div style="color:red" class="email_message_error error_message">{{ message }}</div>
+            {% endfor %}
+
           </div>
         </div>
     </div>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-4 textbox-height">
+  <div class="col-xs-12 col-sm-4 col-md-4 textbox-height">
     <div class="mdl-textfield mdl-textfield--floating-label
     mdl-js-textfield mdl-textfield--full-width  is-upgraded"
     data-upgraded=",MaterialTextfield">
     </div>
   </div>
-    <div class="col-xs-12 col-sm-6 col-md-4 textbox-height">
+    <div class="col-xs-12 col-sm-4 col-md-4 textbox-height">
       <div class="mdl-textfield mdl-textfield--floating-label
       mdl-js-textfield mdl-textfield--full-width  is-upgraded"
       data-upgraded=",MaterialTextfield">
-        {{form.submit}}
+        {{form.submit(class="submit_button")}}
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 textbox-height">
+      <div class="mdl-textfield mdl-textfield--floating-label
+      mdl-js-textfield mdl-textfield--full-width  is-upgraded"
+      data-upgraded=",MaterialTextfield">
       </div>
     </div>
   </div>

@@ -6,8 +6,7 @@ other useful information when creating we parts for a website.
 
 """
 from flask_wtf import FlaskForm
-from wtforms import BooleanField, StringField, SelectField, SubmitField,\
-    TextAreaField
+from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import Regexp, DataRequired
 
@@ -44,9 +43,6 @@ class RegistrationForm(FlaskForm):
         DataRequired("Please Enter Your First Name"),
         name_regex_validator
     ])
-    middle_name = StringField('Middle Name', validators=[
-        one_char_regex_validator
-    ])
     last_name = StringField('Last Name', validators=[
         DataRequired("Please Enter Your Last Name"),
         name_regex_validator
@@ -55,26 +51,9 @@ class RegistrationForm(FlaskForm):
     email = EmailField('Email Address', validators=[
         DataRequired("Please Enter Your Email")
     ])
-    # Select is used for your dropdown but the options can also be pulled from
-    # a query as well. The choices need to be the value for the application
-    # and the display text value.
-    #
-    # random_select_option = SelectField('Random Select For Test', validators=[
-    #     DataRequired("Please Select an Option")
-    # ],
-    #     choices=[
-    #     ('', ''), ('Puppies', 'Puppies'), ('Kitties', 'Kitties'),
-    #     ('Travel', 'Travel')
-    # ])
-    #
     # TextArea For A Message to be sent via Email
     email_message = TextAreaField('Send A Special Message', validators=[
-        DataRequired("Please Send Me A Message.")
-    ])
-    # BooleanField are used as they are a checkbox, this one is required
-    # for TOS
-    accept_tos = BooleanField('Are You Sure?', validators=[
-        DataRequired("Select The CheckBox if You Really Want To Send the Email")
+        DataRequired("Please Enter Message.")
     ])
     # SubmitField to sned the data
-    submit = SubmitField("Submit Content")
+    submit = SubmitField("Send Email")
